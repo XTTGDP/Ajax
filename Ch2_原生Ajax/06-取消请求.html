@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>取消请求</title>
+</head>
+
+<body>
+    <button id="fason">点击发送</button>
+    <button id="quxiao">点击取消</button>
+    <script>
+        // 获取元素
+        var fason = document.querySelector('#fason');
+        var quxiao = document.querySelector('#quxiao');
+        let xhr = null;
+        fason.onclick = function () {
+            xhr = new XMLHttpRequest();
+            xhr.open('GET', 'http://127.0.0.1:8000/delay');
+            xhr.send();
+        }
+        // abort 取消请求
+        quxiao.onclick = function () {
+            xhr.abort();
+        }
+    </script>
+</body>
+
+</html>
